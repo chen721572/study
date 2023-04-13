@@ -1,0 +1,13 @@
+body{
+    background-image: url(../img/柯南-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.col-lg-5{
+    background-color:black;
+}
+.text{
+    height: 80vh;
+}
