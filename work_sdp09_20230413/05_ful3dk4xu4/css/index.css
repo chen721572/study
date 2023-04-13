@@ -1,0 +1,13 @@
+body{
+    background-image: url(../images/搖滾.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.col-lg-5{
+    background-color: rgb(173,216,230,0.62);
+}
+.text{
+    height: 100vh;
+}
