@@ -1,0 +1,13 @@
+body{
+    background-image: url(../images/屏科大.jpg);
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.col-lg-5{
+    background-color: rgb(189, 139, 236,0.32);
+}
+.text{
+    height: 100vh;
+}

@@ -1,0 +1,14 @@
+body{
+    background-image: url(../images/000001.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
+}
+.col-lg-5{
+    background-color: rgba(206, 78, 78, 0.329);
+}
+.text{
+    height: 100vh;
+}
