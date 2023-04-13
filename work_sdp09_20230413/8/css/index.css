@@ -1,0 +1,13 @@
+body{
+    background-image: url(../valorant.image/全體照.jpg);
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.col-lg-5{
+    background-color: rgba(124, 53, 190, 0.55);
+}
+.text{
+    height: 100vh;
+}

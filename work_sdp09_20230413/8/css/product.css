@@ -1,0 +1,13 @@
+#banner{
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 300px;
+    margin-top: 3.5rem;
+}
+.title{
+    color: rgb(135, 18, 189);
+    font-weight: bold;
+}
+
