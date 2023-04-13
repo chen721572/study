@@ -1,0 +1,8 @@
+#banner{
+    margin-top: 50px;
+    background-image: url(../images/bg-product-head.webp);
+    background-repeat: no-repeat;
+    height: 127px;
+    background-size: cover;
+    background-position: center center;
+}

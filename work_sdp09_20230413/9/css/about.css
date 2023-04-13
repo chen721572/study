@@ -1,0 +1,21 @@
+#banner{
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 300px;
+    margin-top: 3.5rem;
+}
+#banner2{
+    height: 100px;
+}
+#banner3{
+    height: 75px;
+}
+#banner4{
+    height: 60px;
+}
+.title{
+    color: red;
+    font-weight: bold;
+}
