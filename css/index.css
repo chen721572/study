@@ -1,0 +1,33 @@
+/* index1 */
+#banner{
+    background-image:url(../p/0.jpg);
+height: 500px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+#title-1{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+/* index2 */
+#banner1{
+    background-image:url(../p/999.jpg);
+height: 500px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+.col{
+    margin-bottom: 20px;
+}
+.col:hover{
+    transform:translateY(-10px);
+}
+.col .card:hover{
+    background-color: rgba(125,125,225,0.2);
+}
