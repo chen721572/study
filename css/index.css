@@ -34,7 +34,7 @@ background-attachment: fixed;
     background-image:url(../img/app/02_0.jpg);
 /* height: 500px; */
 background-repeat: no-repeat;
-background-size: 50% auto;
+/* background-size: 50% auto; */
 background-position: center center;
 background-attachment: fixed;
 }
