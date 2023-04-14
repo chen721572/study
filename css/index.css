@@ -32,9 +32,9 @@ background-attachment: fixed;
 }
 #banner_app{
     background-image:url(../img/app/02_0.jpg);
-height: 500px;
+/* height: 500px; */
 background-repeat: no-repeat;
-background-size: 100% 100%;
+background-size: 100% auto;
 background-position: center center;
 background-attachment: fixed;
 }
@@ -54,5 +54,5 @@ background-attachment: fixed;
     height: 100vh;
 }
 .text_app{
-    height: 60vh;
+    height: 20vh;
 }
