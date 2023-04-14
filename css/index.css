@@ -16,9 +16,9 @@ background-attachment: fixed;
 /* index2 */
 #banner1{
     background-image:url(../p/999.jpg);
-height: 500px;
+/* height: 500px; */
 background-repeat: no-repeat;
-background-size: cover;
+/* background-size: cover; */
 background-position: center center;
 background-attachment: fixed;
 }
