@@ -22,6 +22,22 @@ background-size: cover;
 background-position: center center;
 background-attachment: fixed;
 }
+#banner2{
+    background-image:url(../img/multi/multi_all.png);
+/* height: 500px; */
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+#banner_app{
+    background-image:url(../img/app/02_0.jpg);
+height: 500px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
 .col{
     margin-bottom: 20px;
 }
@@ -30,4 +46,13 @@ background-attachment: fixed;
 }
 .col .card:hover{
     background-color: rgba(125,125,225,0.2);
+}
+.col-lg-5{
+    background-color: rgba(138, 136, 238, 0.529);
+}
+.text{
+    height: 100vh;
+}
+.text_app{
+    height: 60vh;
 }
