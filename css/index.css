@@ -1,58 +1,68 @@
 /* index1 */
-#banner{
-    background-image:url(../p/0.jpg);
-height: 500px;
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center center;
-background-attachment: fixed;
+#banner {
+    background-image: url(../p/0.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
-#title-1{
+
+#title-1 {
     margin-top: 10px;
     padding: 10px;
     background-color: black;
     color: white;
 }
+
 /* index2 */
-#banner1{
-    background-image:url(../p/999.jpg);
-/* height: 500px; */
-background-repeat: no-repeat;
-/* background-size: cover; */
-background-position: center center;
-background-attachment: fixed;
+#banner1 {
+    background-image: url(../p/999.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
-#banner2{
-    background-image:url(../img/multi/multi_all.png);
-/* height: 500px; */
-background-repeat: no-repeat;
-/* background-size: cover; */
-background-position: center center;
-background-attachment: fixed;
+
+#banner2 {
+    background-image: url(../img/multi/multi_all.png);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
-#banner_app{
-    background-image:url(../img/app/02_0.jpg);
-/* height: 500px; */
-background-repeat: no-repeat;
-/* background-size: 50% auto; */
-background-position: center center;
-background-attachment: fixed;
+
+#banner_app {
+    background-image: url(../img/app/02_0.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
-.col{
+
+.col {
     margin-bottom: 20px;
 }
-.col:hover{
-    transform:translateY(-10px);
+
+.col:hover {
+    transform: translateY(-10px);
 }
-.col .card:hover{
-    background-color: rgba(125,125,225,0.2);
+
+.col .card:hover {
+    background-color: rgba(125, 125, 225, 0.2);
 }
-.col-lg-5{
+
+.col-lg-5 {
     background-color: rgba(138, 136, 238, 0.529);
 }
-.text{
-    height: 20vh;
+
+.text {
+    height: 60vh;
 }
-.text_app{
-    height: 20vh;
+
+.text_app {
+    height: 60vh;
 }
