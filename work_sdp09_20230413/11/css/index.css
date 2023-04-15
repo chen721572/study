@@ -1,6 +1,6 @@
 /* index1 */
 #banner{
-    background-image:url(/work_sdp09_20230413/11/p11/0.jpg);
+    background-image:url(../p11/0.jpg);
 height: 500px;
 background-repeat: no-repeat;
 background-size: cover;
@@ -15,7 +15,7 @@ background-attachment: fixed;
 }
 /* index2 */
 #banner1{
-    background-image:url(/work_sdp09_20230413/11/p11/0.jpg);
+    background-image:url(../p11/0.jpg);
 height: 500px;
 background-repeat: no-repeat;
 background-size: cover;
