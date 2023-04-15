@@ -5,7 +5,7 @@ height: 500px;
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center center;
-background-attachment: fixed22;
+/* background-attachment: fixed; */
 }
 #title-1{
     margin-top: 10px;
@@ -20,5 +20,5 @@ height: 500px;
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center center;
-background-attachment: fixed22;
+/* background-attachment: fixed; */
 }
