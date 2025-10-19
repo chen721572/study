@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3D 繪圖教學 — 多語發音互動教材</title>
+<style>
+:root{
+  --bg:#f5f3ff;
+  --card:#ffffff;
+  --accent:#5b4bff;
+  --accent-light:#8a7bff;
+  --muted:#6b6b84;
+  --hover:#f0f0ff;
+}
+body{
+  font-family:"Noto Sans TC","Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  margin:0;
+  padding:24px;
+  color:#202042;
+}
+h1,h2{margin:0;}
+header{text-align:center;margin-bottom:16px;}
+header h1{color:var(--accent);}
+.subtitle{color:var(--muted);}
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(24,39,75,0.08);
+  margin-bottom:24px;
+}
+h2{border-left:6px solid var(--accent);padding-left:10px;color:#2b2b7a;}
+.table-wrap{overflow:auto;}
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+thead th{
+  background:linear-gradient(90deg,var(--accent-light),#a18cff);
+  color:#fff;
+  padding:10px;
+  text-align:left;
+}
+tbody td{padding:10px;border-bottom:1px solid #ddd;cursor:pointer;}
+tbody tr:nth-child(odd){background:#faf9ff;}
+tbody tr:hover{background:var(--hover);}
+.speakable.playing{background-color:rgba(91,75,255,0.15)!important;}
+#top-bar{display:flex;justify-content:center;align-items:center;gap:12px;position:relative;margin-bottom:20px;}
+#toggle-speech{
+  padding:10px 16px;
+  background:var(--accent);
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(91,75,255,0.3);
+}
+#toggle-speech.off{background:#aaa;box-shadow:none;}
+#control-btn{
+  background:var(--accent-light);
+  border:none;
+  color:white;
+  border-radius:50%;
+  width:38px;height:38px;
+  cursor:pointer;
+  font-size:18px;
+}
+#control-panel{
+  position:absolute;
+  right:0;
+  top:0;
+  background:var(--card);
+  border:1px solid #ddd;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  padding:12px 16px;
+  display:none;
+  flex-direction:column;
+  gap:8px;
+  min-width:240px;
+  z-index:10;
+}
+#control-panel.show{display:flex;}
+#control-panel label{font-size:14px;font-weight:500;color:#333;}
+#control-panel select,#control-panel input[type=range]{width:100%;}
+.site-footer{text-align:center;color:var(--muted);margin-top:18px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>大阪府立夕陽丘高等学校 — Autodesk 123D Design 教學</h1>
+</header>
+
+<div id="top-bar">
+  <button id="toggle-speech">🔈 已啟用發音</button>
+  <button id="control-btn" title="語音設定">🎤</button>
+  <div id="control-panel">
+    <label>語速: <span id="rate-val">1.0</span></label>
+    <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+    <label>音量: <span id="vol-val">1.0</span></label>
+    <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+    <label>英文語音：</label>
+    <select id="voice-en"></select>
+    <label>日文語音：</label>
+    <select id="voice-ja"></select>
+    <label>中文語音：</label>
+    <select id="voice-zh"></select>
+  </div>
+</div>
+
+<main>
+<section class="card">
+<h2>🖱 滑鼠操作</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>功能</th><th>中文</th><th>英文</th><th>日本語</th></tr></thead>
+<tbody>
+<tr>
+<td>移動畫面</td><td>按下中鍵拖曳畫面</td><td>Hold middle mouse button to move the view</td><td>マウスホイールを押しながらドラッグして画面を移動</td>
+</tr>
+<tr>
+<td>旋轉視角</td><td>右鍵拖曳旋轉視角</td><td>Hold right mouse button to rotate</td><td>右クリックを押しながらドラッグして視点を回転</td>
+</tr>
+<tr>
+<td>縮放</td><td>滾輪前後滾動</td><td>Scroll wheel to zoom in/out</td><td>マウスホイールを回して拡大・縮小</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+
+<footer class="site-footer"><small>國立基隆商工 資料處理科</small></footer>
+
+<script>
+(function(){
+  let speechEnabled = true;
+  let rate = 1.0, volume = 1.0;
+  const toggleBtn = document.getElementById('toggle-speech');
+  const ctrlBtn = document.getElementById('control-btn');
+  const ctrlPanel = document.getElementById('control-panel');
+  const rateSlider = document.getElementById('rate');
+  const volSlider = document.getElementById('volume');
+  const rateVal = document.getElementById('rate-val');
+  const volVal = document.getElementById('vol-val');
+  const voiceSelects = {
+    en: document.getElementById('voice-en'),
+    ja: document.getElementById('voice-ja'),
+    zh: document.getElementById('voice-zh')
+  };
+  let voices = [];
+
+  function loadVoices(){
+    voices = speechSynthesis.getVoices();
+    ['en','ja','zh'].forEach(lang=>{
+      const sel = voiceSelects[lang];
+      sel.innerHTML='';
+      const prefix = lang==='zh'?'zh':(lang==='ja'?'ja':'en');
+      const list = voices.filter(v=>v.lang.toLowerCase().startsWith(prefix));
+      list.forEach(v=>{
+        const opt=document.createElement('option');
+        opt.value=v.name;
+        opt.textContent=`${v.name} (${v.lang})`;
+        sel.appendChild(opt);
+      });
+    });
+  }
+  speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+
+  toggleBtn.addEventListener('click', ()=>{
+    speechEnabled = !speechEnabled;
+    toggleBtn.textContent = speechEnabled ? '🔈 已啟用發音' : '🔇 發音已關閉';
+    toggleBtn.classList.toggle('off', !speechEnabled);
+  });
+
+  ctrlBtn.addEventListener('click', ()=>ctrlPanel.classList.toggle('show'));
+  rateSlider.addEventListener('input', ()=>{ rate=parseFloat(rateSlider.value); rateVal.textContent=rate.toFixed(1); });
+  volSlider.addEventListener('input', ()=>{ volume=parseFloat(volSlider.value); volVal.textContent=volume.toFixed(1); });
+
+  function detectLang(text){
+    if(/[ぁ-んァ-ヶ一-龯]/.test(text)) return 'ja-JP';
+    if(/^[A-Za-z0-9\s.,!?'"()\-:;]+$/.test(text)) return 'en-US';
+    return 'zh-TW';
+  }
+
+  function getSelectedVoice(lang){
+    const sel = lang.startsWith('ja')?voiceSelects.ja:
+                lang.startsWith('en')?voiceSelects.en:voiceSelects.zh;
+    const name = sel.value;
+    return voices.find(v=>v.name===name);
+  }
+
+  function speak(text, lang, el){
+    if(!speechEnabled || !text.trim()) return;
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = rate;
+    u.volume = volume;
+    const v = getSelectedVoice(lang);
+    if(v) u.voice = v;
+    if(el) el.classList.add('playing');
+    u.onend=()=>{if(el) el.classList.remove('playing');};
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }
+
+  document.querySelectorAll('td').forEach(td=>{
+    ['click','mouseenter'].forEach(evt=>{
+      td.addEventListener(evt, ()=>{
+        const text = td.textContent.trim();
+        const lang = detectLang(text);
+        speak(text, lang, td);
+      });
+    });
+  });
+
+  window.addEventListener('click', ()=>speechSynthesis.getVoices(), {once:true});
+})();
+</script>
+</body>
+</html>
