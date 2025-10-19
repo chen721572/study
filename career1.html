@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3D 繪圖教學 — 互動教材（中/英/日）</title>
+<style>
+:root{
+  --bg:#f3f6fb;
+  --card:#fff;
+  --accent:#4d79ff;
+  --muted:#667085;
+  --table-border:#e1e8f0;
+  --row-hover:#eef3ff;
+}
+*{box-sizing:border-box}
+body{
+  font-family:"Noto Sans TC","Segoe UI",Arial,sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:#102a43;
+  padding:24px;
+}
+header{text-align:center;margin-bottom:16px;}
+header h1{margin:0;color:var(--accent);}
+.subtitle{color:var(--muted);margin-top:6px;}
+.container{max-width:1100px;margin:0 auto;display:grid;gap:20px;}
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(24,39,75,0.08);
+  border:1px solid #dfe4f0;
+}
+h2{
+  border-left:6px solid var(--accent);
+  padding-left:10px;
+  color:#2b3a67;
+}
+.table-wrap{overflow:auto;}
+.multi-lang{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+.multi-lang thead th{
+  background:linear-gradient(90deg,rgba(77,121,255,0.15),rgba(255,159,67,0.1));
+  padding:12px 14px;
+  text-align:left;
+  font-weight:600;
+  color:#2b3a67;
+  border-bottom:2px solid var(--table-border);
+}
+.multi-lang tbody tr:nth-child(odd){background:#fafbff;}
+.multi-lang tbody tr:nth-child(even){background:#fdfdff;}
+.multi-lang tbody tr:hover{background:var(--row-hover);}
+.multi-lang td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--table-border);
+  vertical-align:middle;
+  cursor:pointer;
+  transition:background 0.2s,transform 0.1s;
+}
+.multi-lang td:hover{background:rgba(77,121,255,0.08);}
+.speakable{
+  color:var(--accent);
+  display:inline-block;
+  padding:4px 6px;
+  border-radius:6px;
+  transition:background 0.2s;
+}
+.speakable.small{
+  font-size:13px;
+  font-weight:500;
+  color:#333;
+  background:transparent;
+}
+.speakable:hover,td:hover{background:rgba(77,121,255,0.06);}
+.playing{
+  animation:flash 1s ease-in-out infinite alternate;
+}
+@keyframes flash{
+  0%{background-color:rgba(77,121,255,0.15);}
+  100%{background-color:rgba(77,121,255,0.05);}
+}
+#toggle-speech{
+  margin-bottom:20px;
+  padding:10px 16px;
+  background:var(--accent);
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(77,121,255,0.3);
+  transition:background 0.3s,transform 0.1s;
+}
+#toggle-speech:hover{transform:scale(1.03);}
+#toggle-speech.off{
+  background:#bbb;
+  box-shadow:none;
+}
+.site-footer{text-align:center;color:var(--muted);margin-top:18px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>いらっしゃいませ 大阪府立夕陽丘高等学校</h1>
+  <h1>コース：3D描画チュートリアル — Autodesk 123D Design</h1>
+  <p class="subtitle"></p>
+</header>
+
+<div style="text-align:center;">
+  <button id="toggle-speech">🔈 已啟用發音</button>
+</div>
+
+<main class="container">
+<section class="card">
+<h2>🖱 滑鼠操作說明 <small>Mouse Controls / マウス操作</small></h2>
+<div class="table-wrap">
+<table class="multi-lang">
+<thead><tr>
+<th>功能(関数)</th>
+<th>動作</th>
+<th>中文說明</th>
+<th>English</th>
+<th>日本語</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>移動平面<br><span class="speakable small" data-lang="ja">平面を移動</span></td>
+<td>按住「滾輪」移動</td>
+<td>按下滑鼠中鍵（滾輪），拖曳可移動畫面</td>
+<td><span class="speakable" data-lang="en">Hold middle mouse button and drag to move the view</span></td>
+<td><span class="speakable" data-lang="ja">マウスホイールを押しながらドラッグして画面を移動</span></td>
+</tr>
+<tr>
+<td>旋轉平面<br><span class="speakable small" data-lang="ja">平面を回転</span></td>
+<td>按住「右鍵」移動</td>
+<td>按下滑鼠右鍵，拖曳可旋轉視角</td>
+<td><span class="speakable" data-lang="en">Hold right mouse button and drag to rotate the view</span></td>
+<td><span class="speakable" data-lang="ja">右クリックを押しながらドラッグして視点を回転</span></td>
+</tr>
+<tr>
+<td>縮放平面<br><span class="speakable small" data-lang="ja">平面を拡大縮小</span></td>
+<td>前後轉動「滾輪」</td>
+<td>滾動滑鼠滾輪可縮放畫面</td>
+<td><span class="speakable" data-lang="en">Scroll the mouse wheel to zoom in/out</span></td>
+<td><span class="speakable" data-lang="ja">マウスホイールを回して拡大・縮小</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card">
+<h2>⌨️ 鍵盤快捷鍵 <small>Keyboard Shortcuts / キーボードショートカット</small></h2>
+<div class="table-wrap">
+<table class="multi-lang">
+<thead><tr>
+<th>按鍵(ボタン)</th>
+<th>中文功能</th>
+<th>English</th>
+<th>日本語</th>
+</tr></thead>
+<tbody>
+<tr><td>Ctrl + A</td><td>全選</td><td><span class="speakable" data-lang="en">Select All</span></td><td><span class="speakable" data-lang="ja">すべて選択</span></td></tr>
+<tr><td>Ctrl + C</td><td>複製</td><td><span class="speakable" data-lang="en">Copy</span></td><td><span class="speakable" data-lang="ja">コピー</span></td></tr>
+<tr><td>Ctrl + V</td><td>貼上</td><td><span class="speakable" data-lang="en">Paste</span></td><td><span class="speakable" data-lang="ja">貼り付け</span></td></tr>
+<tr><td>Ctrl + Z</td><td>復原</td><td><span class="speakable" data-lang="en">Undo</span></td><td><span class="speakable" data-lang="ja">元に戻す</span></td></tr>
+<tr><td>Ctrl + Y</td><td>取消復原</td><td><span class="speakable" data-lang="en">Redo</span></td><td><span class="speakable" data-lang="ja">やり直す</span></td></tr>
+<tr><td>Tab</td><td>切換輸入位置</td><td><span class="speakable" data-lang="en">Switch input position</span></td><td><span class="speakable" data-lang="ja">入力位置を切り替える</span></td></tr>
+<tr><td>Esc</td><td>退出功能</td><td><span class="speakable" data-lang="en">Exit / Cancel</span></td><td><span class="speakable" data-lang="ja">機能を終了・キャンセル</span></td></tr>
+<tr><td>D</td><td>降落</td><td><span class="speakable" data-lang="en">Dro
