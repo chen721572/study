@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3D 繪圖教學 — 互動教材（中/英/日）</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header><h1>いらっしゃいませ 大阪府立夕陽丘高等学校
+</h1>
+  <h1>コース：3D描画チュートリアル — Autodesk 123D Design</h1>
+<p class="subtitle"></p></header>
+<main class="container">
+<section class="card">
+<h2>🖱 滑鼠操作說明 <small>Mouse Controls / マウス操作</small></h2>
+<div class="table-wrap"><table class="multi-lang">
+<thead><tr>
+<th>功能(関数)</th>
+<th>動作</th>
+<th>中文說明</th>
+<th>English</th>
+<th>日本語</th>
+</tr></thead><tbody>
+<tr>
+<td>移動平面<br><span class="speakable small" data-lang="ja" tabindex="0">平面を移動</span></td>
+<td>按住「滾輪」移動</td>
+<td>按下滑鼠中鍵（滾輪），拖曳可移動畫面</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Hold middle mouse button and drag to move the view</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">マウスホイールを押しながらドラッグして画面を移動</span></td>
+</tr>
+<tr>
+<td>旋轉平面<br><span class="speakable small" data-lang="ja" tabindex="0">平面を回転</span></td>
+<td>按住「右鍵」移動</td>
+<td>按下滑鼠右鍵，拖曳可旋轉視角</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Hold right mouse button and drag to rotate the view</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">右クリックを押しながらドラッグして視点を回転</span></td>
+</tr>
+<tr>
+<td>縮放平面<br><span class="speakable small" data-lang="ja" tabindex="0">平面を拡大縮小</span></td>
+<td>前後轉動「滾輪」</td>
+<td>滾動滑鼠滾輪可縮放畫面</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Scroll the mouse wheel to zoom in/out</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">マウスホイールを回して拡大・縮小</span></td>
+</tr>
+</tbody></table></div></section>
+<section class="card">
+<h2>⌨️ 鍵盤快捷鍵 <small>Keyboard Shortcuts / キーボードショートカット</small></h2>
+<div class="table-wrap"><table class="multi-lang">
+<thead><tr>
+<th>按鍵(ボタン)</th>
+<th>中文功能</th>
+<th>English</th>
+<th>日本語</th>
+</tr></thead><tbody>
+<tr>
+<td>Ctrl + A</td>
+<td>全選</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Select All</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">すべて選択</span></td>
+</tr>
+<tr>
+<td>Ctrl + C</td>
+<td>複製</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Copy</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">コピー</span></td>
+</tr>
+<tr>
+<td>Ctrl + V</td>
+<td>貼上</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Paste</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">貼り付け</span></td>
+</tr>
+<tr>
+<td>Ctrl + Z</td>
+<td>復原</td>
+<td><span class="speakable" data-lang="en" tabindex="0">Undo</span></td>
+<td><span class="speakable" data-lang="ja" tabindex="0">元に戻す</span></td>
+</tr>
+<tr>
+<td>Ctrl + Y</td>
+:root{ --bg:#f6f8fb; --card:#fff; --accent:#4d79ff; --muted:#667085; --table-border:#e1e8f0; }
+*{box-sizing:border-box}
+body{font-family: "Noto Sans TC", "Segoe UI", Arial, sans-serif; margin:0; background:var(--bg); color:#102a43; padding:24px;}
+header{ text-align:center; margin-bottom:16px; }
+header h1{ margin:0; color:var(--accent); }
+.subtitle{ color:var(--muted); margin-top:6px; }
+.container{ max-width:1100px; margin:0 auto; display:grid; gap:20px; }
+.card{ background:var(--card); padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(24,39,75,0.06); }
+.table-wrap{ overflow:auto; }
+.multi-lang{ width:100%; border-collapse:collapse; }
+.multi-lang thead th{ text-align:left; padding:12px; background:linear-gradient(90deg, rgba(77,121,255,0.06), rgba(255,159,67,0.03)); border-bottom:1px solid var(--table-border); }
+.multi-lang td{ padding:12px; border-bottom:1px solid var(--table-border); vertical-align:middle; }
+.speakable{ cursor:pointer; color:var(--accent); display:inline-block; padding:4px 6px; border-radius:6px; }
+.speakable.small{ font-size:13px; font-weight:500; color:#333; background:transparent; }
+.speakable:focus{ outline:2px solid rgba(77,121,255,0.12); }
+.speakable:hover{ background:rgba(77,121,255,0.06); }
+.site-footer{ text-align:center; color:var(--muted); margin-top:18px; }
